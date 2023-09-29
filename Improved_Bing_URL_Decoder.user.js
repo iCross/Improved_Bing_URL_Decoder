@@ -4,6 +4,7 @@
 // @version      1.0
 // @description  Decode Bing URLs to get the direct result page URL
 // @author       https://github.com/iCross
+// @downloadURL  https://github.com/iCross/Improved_Bing_URL_Decoder/raw/main/Improved_Bing_URL_Decoder.user.js
 // @match        *://*.bing.com/*
 // @license      MIT
 // @grant        none
