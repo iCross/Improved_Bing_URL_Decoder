@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Improved Bing URL Decoder
 // @namespace    https://github.com/iCross
-// @version      1.0
+// @version      1.0.1
 // @description  Decode Bing URLs to get the direct result page URL
 // @author       https://github.com/iCross
 // @downloadURL  https://github.com/iCross/Improved_Bing_URL_Decoder/raw/main/Improved_Bing_URL_Decoder.user.js
@@ -23,15 +23,17 @@
     }
 
     function processLinks(links) {
-        links.forEach(link => {
-            const urlMatch = link.href.match(/u=([^&]+)/);
-            if (urlMatch && urlMatch[1]) {
-                const decodedURL = decodeBingURL(urlMatch[1].slice(2));
-                link.href = decodedURL;
-                link.title = "Decoded URL: " + decodedURL;
-            }
-        });
-    }
+    links.forEach(link => {
+        const urlMatch = link.href.match(/u=([^&]+)/);
+        if (urlMatch && urlMatch[1]) {
+            const decodedURL = decodeBingURL(urlMatch[1].slice(2));
+            link.href = decodedURL;
+            link.title = "Decoded URL: " + decodedURL;
+            link.target = '_self';
+        }
+    });
+}
+
 
     function processAllLinks() {
         const links = document.querySelectorAll('a[href*="bing.com/ck/"]');
